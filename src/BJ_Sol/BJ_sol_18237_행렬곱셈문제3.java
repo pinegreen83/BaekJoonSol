@@ -1,4 +1,4 @@
-package src.BJ_Sol;
+package BJ_Sol;
 
 import java.io.BufferedReader;
 import java.io.IOException;
