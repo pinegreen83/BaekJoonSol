@@ -22,7 +22,6 @@ public class BJ_sol_25400_제자리 {
             num = Integer.parseInt(st.nextToken());
             if(num == start+1) start++;
         }
-
         System.out.println(N-start);
     }
 
