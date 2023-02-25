@@ -11,6 +11,7 @@ public class BJ_sol_2546_경제학과정원영 {
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     static StringTokenizer st;
     static int N, M;
+    static StringBuilder sb = new StringBuilder();
 
     public static void main(String[] args) throws IOException {
         int T = Integer.parseInt(br.readLine());
@@ -20,37 +21,33 @@ public class BJ_sol_2546_경제학과정원영 {
             st = new StringTokenizer(br.readLine());
             N = Integer.parseInt(st.nextToken());
             M = Integer.parseInt(st.nextToken());
-            int[] cStu = new int[N];
-            int[] eStu = new int[M];
+            long[] cStu = new long[N];
+            long[] eStu = new long[M];
+
+            long csum = 0;
+            long esum = 0;
 
             st = new StringTokenizer(br.readLine());
-            int csum = 0;
             for(int c=0; c<N; c++) {
                 cStu[c] = Integer.parseInt(st.nextToken());
                 csum += cStu[c];
             }
-            float cavg = (float) csum / N;
 
             st = new StringTokenizer(br.readLine());
-            int esum = 0;
             for(int m=0; m<M; m++) {
                 eStu[m] = Integer.parseInt(st.nextToken());
                 esum += eStu[m];
             }
-            float eavg = (float) esum / M;
-
-            Arrays.sort(cStu);
-            Arrays.sort(eStu);
 
             int ans = 0;
             for(int i=0; i<N; i++) {
-                if(cStu[i] > eavg && cStu[i] < cavg) {
+                if(csum > cStu[i]*N  && esum < cStu[i]*M) {
                     ans++;
                 }
             }
-
-            System.out.println(ans);
+            sb.append(ans).append("\n");
         }
+        System.out.println(sb);
     }
 
 }
